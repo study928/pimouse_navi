@@ -10,4 +10,5 @@
 
   <arg name="map_file" default="$(find pimouse_navi)/map/room.yaml"/>
   <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)" output="screen"/> 
+  <include file="$(find pimouse_navi)/launch/amcl_test2.launch"/>
 </launch>

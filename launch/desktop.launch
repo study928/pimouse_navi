@@ -1,7 +1,6 @@
 <launch>
   <master auto="start"/>
     <!-- amcl -->
-  <include file="$(find pimouse_navi)/launch/amcl_test2.launch"/>
     <!-- move_base -->
   <include file="$(find pimouse_navi)/launch/move_base_test2.launch"/>
 </launch>
