@@ -1,0 +1,15 @@
+<launch>
+  <arg name="base_local_planner" default="dwa_local_planner/DWAPlannerROS"/>
+
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <param name="base_local_planner" value="$(arg base_local_planner)"/>  
+    <rosparam file="$(find pimouse_navi)/config/virtual/move_base_params.yaml" command="load"/>
+    <rosparam file="$(find pimouse_navi)/config/virtual/dwa_local_planner_params.yaml" command="load"/>
+    <rosparam file="$(find pimouse_navi)/config/virtual/base_local_planner_params.yaml" command="load"/>
+    <rosparam file="$(find pimouse_navi)/config/virtual/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find pimouse_navi)/config/virtual/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find pimouse_navi)/config/virtual/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find pimouse_navi)/config/virtual/global_costmap_params.yaml" command="load" />
+  </node>
+
+</launch>

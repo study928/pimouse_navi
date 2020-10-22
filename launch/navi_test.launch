@@ -1,0 +1,21 @@
+<launch>
+  <master auto="start"/>
+    <!-- Arguments -->
+  <arg name="model" default="$(find pimouse_description)/robots/test.urdf.xacro"/>
+
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model)"/>
+  <node name="robot_state_publisher" pkg="robot_state_publisher"
+        type="robot_state_publisher" output="screen"/>
+
+  <include file="$(find pimouse_slam)/launch/motor_power.launch"/>
+    <!-- rviz -->
+  <!--<include file='$(find pimouse_description)/launch/rviz_test.launch' /> -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find raspimouse_gmapping)/rviz/test_test.rviz" required="true" />
+    <!-- map_server -->
+  <arg name="map_file" default="$(find pimouse_two_lidar)/map/room.yaml"/>
+  <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)" output="screen"/> 
+    <!-- amcl -->
+  <include file="$(find pimouse_navi)/launch/amcl_test.launch"/>
+    <!-- move_base -->
+  <include file="$(find pimouse_navi)/launch/move_base_test.launch"/>
+</launch>

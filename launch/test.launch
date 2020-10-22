@@ -1,0 +1,18 @@
+<launch>
+  <master auto="start"/>
+    <!-- Arguments -->
+  <include file="$(find pimouse_slam)/launch/motor_power.launch"/>
+
+  <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser" args="0 0 0.14060 0 0 0 base_link urg_lrf_link 10" />
+  <node pkg="urg_node" name="urg_node" type="urg_node" required="true" >
+    <param name="ip_address" value="192.168.0.123"/>
+    <param name="frame_id" value="urg_lrf_link" />
+  </node>
+    <!-- map_server -->
+  <arg name="map_file" default="$(find pimouse_navi)/map/room.yaml"/>
+  <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)" output="screen"/> 
+    <!-- amcl -->
+  <include file="$(find pimouse_navi)/launch/amcl_test.launch"/>
+    <!-- move_base -->
+  <include file="$(find pimouse_navi)/launch/move_base_test.launch"/>
+</launch>
