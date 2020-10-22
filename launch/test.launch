@@ -15,4 +15,5 @@
   <include file="$(find pimouse_navi)/launch/amcl_test.launch"/>
     <!-- move_base -->
   <include file="$(find pimouse_navi)/launch/move_base_test.launch"/>
+  
 </launch>
