@@ -8,6 +8,7 @@
         type="robot_state_publisher" output="screen"/>
 
   <include file="$(find pimouse_slam)/launch/motor_power.launch"/>
+  
     <!-- rviz -->
   <!--<include file='$(find pimouse_description)/launch/rviz_test.launch' /> -->
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find raspimouse_gmapping)/rviz/test_test.rviz" required="true" />
