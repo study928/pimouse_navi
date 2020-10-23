@@ -1,5 +1,5 @@
 <launch>
-  <master auto="start"/>
+  <!--<master auto="start"/>-->
     <!-- Arguments -->
   <include file="$(find pimouse_slam)/launch/motor_power.launch"/>
 
