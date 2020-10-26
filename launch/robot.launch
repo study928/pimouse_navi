@@ -1,5 +1,5 @@
 <launch>
-  <master auto="start"/>
+  <!--<master auto="start"/>-->
   <include file="$(find pimouse_slam)/launch/motor_power.launch"/>
 
   <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser" args="0 0 0.14060 0 0 0 base_link urg_lrf_link 10" />
@@ -7,6 +7,4 @@
     <param name="ip_address" value="192.168.0.123"/>
     <param name="frame_id" value="urg_lrf_link" />
   </node>
-
-
 </launch>
