@@ -1,0 +1,4 @@
+<launch>
+    <!-- Arguments -->
+  <include file="$(find pimouse_slam)/launch/motor_power.launch"/>
+</launch>
