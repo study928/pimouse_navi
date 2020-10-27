@@ -1,0 +1,19 @@
+<launch>
+  <!--<master auto="start"/>-->
+  <include file="$(find pimouse_slam)/launch/motor_power.launch"/>
+
+  <node pkg="tf" type="static_transform_publisher" name="front_laser" args="0 0 0.14060 0 0 0 base_link front_laser 10" />
+  <node pkg="tf" type="static_transform_publisher" name="back_laser" args="0 0 0.21060 3.14159265359 0 0 base_link back_laser 10" />
+
+  <node pkg='urg_node' name='lidar1' type='urg_node' required='true' >
+    <param name='ip_address' value='192.168.0.123' />
+    <param name="frame_id" value="front_laser" /> 
+    <remap from="scan" to="scan1"/>
+  </node>
+
+  <node pkg='urg_node' name='lidar2' type='urg_node' required='true' >
+    <param name='ip_address' value='192.168.0.10' />
+    <param name="frame_id" value="back_laser" />
+    <remap from="scan" to="scan2"/>
+  </node>
+</launch>
