@@ -3,7 +3,6 @@
   <arg name="map_file" default="$(find pimouse_two_lidar)/map/room.yaml"/>
   <arg name="model" default="$(find pimouse_description)/robots/two_urg_mouse.urdf.xacro"/>
   <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model)"/>
-  <include file='$(find pimouse_slam)/launch/motor_power.launch' />
 
 
     <!-- laserscan_multi_merger -->

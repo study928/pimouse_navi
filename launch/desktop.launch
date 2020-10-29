@@ -1,5 +1,6 @@
 <launch>
   <arg name="map_file" default="$(find pimouse_navi)/map/room.yaml"/>
+  <include file="$(find test_twist_mux)/launch/test_twist_mux.launch"/>
   <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)" output="screen"/> 
   <include file="$(find pimouse_navi)/launch/amcl_test2.launch"/>
   <include file="$(find pimouse_navi)/launch/move_base_test2.launch">

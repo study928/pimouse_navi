@@ -2,6 +2,7 @@
   <arg name="base_local_planner" default="base_local_planner/TrajectoryPlannerROS"/>
 
   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <remap from='cmd_vel' to='nav_vel' />
     <param name="base_local_planner" value="$(arg base_local_planner)"/>  
     <rosparam file="$(find pimouse_navi)/config/move/move_base_params.yaml" command="load"/>
     <rosparam file="$(find pimouse_navi)/config/move/base_local_planner_params.yaml" command="load"/>
